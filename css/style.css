@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #252539;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Area Input */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex: 2;
+    padding: 12px 15px;
+    border: 2px solid #3a3a52;
+    border-radius: 8px;
+    background: #1e1e2e;
+    color: #e0e0e0;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#taskInput:focus {
+    outline: none;
+    border-color: #6c5ce7;
+}
+
+#dateInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #3a3a52;
+    border-radius: 8px;
+    background: #1e1e2e;
+    color: #e0e0e0;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#dateInput:focus {
+    outline: none;
+    border-color: #6c5ce7;
+}
+
+.btn-add {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background: #6c5ce7;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.btn-add:hover {
+    background: #5f4fd1;
+}
+
+.btn-add:active {
+    transform: scale(0.95);
+}
+
+/* Area Kontrol */
+.control-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-filter,
+.btn-delete-all {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.btn-filter {
+    background: #3a3a52;
+    color: #e0e0e0;
+}
+
+.btn-filter:hover {
+    background: #4a4a62;
+}
+
+.btn-delete-all {
+    background: #e74c3c;
+    color: white;
+    margin-left: auto;
+}
+
+.btn-delete-all:hover {
+    background: #c0392b;
+}
+
+.btn-filter:active,
+.btn-delete-all:active {
+    transform: scale(0.95);
+}
+
+/* Filter Options */
+.filter-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #1e1e2e;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.filter-options.hidden {
+    display: none;
+}
+
+.filter-option {
+    flex: 1;
+    padding: 8px 15px;
+    border: 2px solid #3a3a52;
+    border-radius: 6px;
+    background: #252539;
+    color: #e0e0e0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-option:hover {
+    background: #3a3a52;
+}
+
+.filter-option.active {
+    background: #6c5ce7;
+    border-color: #6c5ce7;
+    color: white;
+}
+
+/* Area Daftar Tugas */
+.todo-list-container {
+    background: #1e1e2e;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 200px;
+}
+
+.todo-header {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1.5fr;
+    gap: 15px;
+    padding: 15px;
+    background: #2d2d44;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #b0b0b0;
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1.5fr;
+    gap: 15px;
+    padding: 15px;
+    background: #252539;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+    transition: transform 0.2s;
+}
+
+.todo-item:hover {
+    transform: translateX(5px);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.todo-task {
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.todo-date {
+    font-size: 14px;
+    color: #a0a0a0;
+}
+
+.todo-status {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status-pending {
+    color: #f39c12;
+}
+
+.status-completed {
+    color: #27ae60;
+}
+
+.todo-item.completed .todo-task {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-complete,
+.btn-delete {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-complete {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-complete:hover {
+    background: #229954;
+}
+
+.todo-item.completed .btn-complete {
+    background: #95a5a6;
+}
+
+.todo-item.completed .btn-complete:hover {
+    background: #7f8c8d;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+.no-task {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 18px;
+    padding: 40px;
+    display: none;
+}
+
+.no-task.show {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    .btn-add {
+        width: 100%;
+    }
+
+    .todo-header,
+    .todo-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .todo-header > div {
+        display: none;
+    }
+
+    .todo-item > div::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #b0b0b0;
+        margin-right: 10px;
+    }
+}

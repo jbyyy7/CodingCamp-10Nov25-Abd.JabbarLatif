@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        
+        <!-- Area Input -->
+        <form id="todoForm" class="input-section">
+            <input 
+                type="text" 
+                id="taskInput" 
+                placeholder="Add a todo" 
+                autocomplete="off"
+            >
+            <input 
+                type="date" 
+                id="dateInput"
+            >
+            <button type="submit" class="btn-add">+</button>
+        </form>
+
+        <!-- Area Kontrol -->
+        <div class="control-section">
+            <button id="filterBtn" class="btn-filter">FILTER</button>
+            <button id="deleteAllBtn" class="btn-delete-all">DELETE ALL</button>
+        </div>
+
+        <!-- Filter Options (hidden by default) -->
+        <div id="filterOptions" class="filter-options hidden">
+            <button class="filter-option" data-filter="all">All</button>
+            <button class="filter-option" data-filter="pending">Pending</button>
+            <button class="filter-option" data-filter="completed">Completed</button>
+        </div>
+
+        <!-- Area Daftar Tugas -->
+        <div class="todo-list-container">
+            <div class="todo-header">
+                <div class="header-task">TASK</div>
+                <div class="header-date">DUE DATE</div>
+                <div class="header-status">STATUS</div>
+                <div class="header-actions">ACTIONS</div>
+            </div>
+            
+            <ul id="todoList" class="todo-list"></ul>
+            
+            <div id="noTaskMessage" class="no-task">No task found</div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
